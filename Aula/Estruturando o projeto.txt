@@ -1,0 +1,34 @@
+--ORM 1--ESTRUTURANDO O PROJETO
+* Iniciando projeto
+	- Criando servidor
+	- Instalando modulos
+* Tipos de migração de dados.
+	- a primeira migração é a que migramos dados de uma plataforma para outra.
+	- a segunda é da migração de ORM. Alterações do db que são rastreáveis podendo voltar
+	  ao estado anterior a alteração atual
+* Popupalando o banco
+	- insert into Pessoas(nome, ativo, email, role, createdAt, updatedAt)
+	  values("Carla Gomes", 1, "carla@Alura.com", "estudande", NOW(), NOW());
+* Modelo MVC
+	- MODEL -> modelo
+	- VIEW -> vista
+	- CONTROLLER -> controlador
+	- front -> controler -> model -> controller -> view -> front
+* Criando controllers
+	- Fazemos o CRUD no controller
+	- C -> create
+	- R -> read
+	- U -> update
+	- D -> delete
+	- async (diz ao método externo para esperar os outros métodos terminarem para retornar um valor)
+	- await async (diz ao método interno para esperar sua execução para prosseguir com o programa)
+	- arquivo .js que começa com a letra maiúscula indica uma classe
+* Método CRUD
+	- const { id } = req.params (está dizendo que vai ter um parâmetro id dentro de req e é para pegar ele)
+	- where: { id: Number(id)} (onde a função vai achar o id)
+	- router.get('/pessoas/:id', PessoaController.pegaPessoa) (indicamos que estamos pegando um parâmetro usando 'pessoas/:[nome do parâmetro]')
+	- await database.Pessoas.findAll(); (método que pega pessoas)
+	- await database.Pessoas.findOne({where: {id: Number(id)}}); (método para pegar uma única pessoa)
+	- const novaPessoaCriada = await database.Pessoas.create(novaPessoa) (método para criar pessoa)
+ 	- await database.Pessoas.update(novasInfos, {where : {id: Number(id)}}) (método para atualizar uma pessoa)
+	- await database.Pessoas.destroy({where: {id: Number(id)}}) (apaga uma pessoa)
